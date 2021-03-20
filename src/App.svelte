@@ -14,6 +14,7 @@
 		defendDice = [-1, -1, -1];
 
 		setFightingSoliders();
+		console.log(`attackUnit ${attackUnit} \t defendUnit ${defendUnit}`);
 
 		throwDice();
 
@@ -66,7 +67,6 @@
 	function dice() {
 		let dice = Math.ceil( Math.random() *6 );
 		console.log(dice);
-
 		return dice;
 	}
 
@@ -81,25 +81,22 @@
 				}
 			}
 		}
-
 		attackers = attackers + attackUnit;
 		defenders = defenders + defendUnit;
-
 	}
 
 	const reset = () => {
 		attackers = 0;
 		defenders = 0;
+		attackUnit = 0;
+		defendUnit = 0;
+		winner = -1;
 	}
-
-
-
-
 </script>
 
 <main>
 	<h1>Risk Dice</h1>
-	<p>Simply input the number of attackers and defenders anmd click fight to see who will win.</p>
+	<p>Simply input the number of attackers and defenders and click fight to see who will win.</p>
 	<label for="attackers">attackers</label>
 	<input type="number" name="attackers" id="attackers" bind:value={attackers}>
 	<label for="attackers">defenders</label>
