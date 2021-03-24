@@ -92,44 +92,86 @@
 		defendUnit = 0;
 		winner = -1;
 	}
+
+	const reductAtt = () => {
+		if(attackers > 0) attackers--;
+	}
+
+	const addAtt = () => {
+		attackers++;
+	}
+
+	const reductDef = () => {
+		if(defenders > 0) defenders--;
+	}
+
+	const addDef = () => {
+		defenders++;
+	}
 </script>
 
 <main>
 	<div class="container">
 		<div class="row">
 			<div class="twelve columns">
-				<h1>Risk Dice</h1>
+				<h1 class="centered">Risk Dice</h1>
 			</div>
-
 		</div>
 		<div class="row">
 			<div class="twelve columns">
-				<p>Simply input the number of attackers and defenders and click fight to see who will win.</p>
+				<p class="centered">Simply input the number of attackers and defenders and click fight to see who will win.</p>
 			</div>
 		</div>
-
 		<div class="row">
-			<div class="six columns">
-				<label for="attackers">attackers</label>
-				<input type="number" name="attackers" id="attackers" min="0" bind:value={attackers}>
-				<label for="attackers">defenders</label>
-				<input type="number" name="defenders" id="attackers" min="0" bind:value={defenders}>
+			<div class="twelve columns">
+				<div class="centered">
+					<label for="attackers">attackers</label>
+					<button class="button" on:click={reductAtt}>-</button>
+					<input type="number" name="attackers" id="attackers" min="0" bind:value={attackers}>
+					<button class="button" on:click={addAtt}>+</button>
+
+				</div>
+			</div>
+			<div class="twelve columns">
+				<div class="centered">
+					<label for="attackers">defenders</label>
+					<button class="button" on:click={reductDef}>-</button>
+					<input type="number" name="defenders" id="attackers" min="0" bind:value={defenders}>
+					<button class="button" on:click={addDef}>+</button>
+				</div>
 			</div>
 		</div>
-
 		<div class="row">
-			<div class="six columns">
-				<button on:click={fight}>fight</button>
-				<button on:click={reset}>reset</button>
+			<div class="twelve columns">
+				<div class="centered">
+					<button class="button" on:click={fight}>fight</button>
+					<button class="button" on:click={reset}>reset</button>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<div class="centered">
+					{#if winner === 0}
+					<h3>The attacker won!</h3>
+					{:else if winner === 1}
+					<h3>The defender won!</h3>
+					{/if}
+				</div>
 			</div>
 		</div>
 
 	
 	
-		{#if winner === 0}
-		<h3>The attacker won!</h3>
-		{:else if winner === 1}
-		<h3>The defender won!</h3>
-		{/if}
 	</div>
 </main>
+
+<style>
+	.centered {
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+</style>
