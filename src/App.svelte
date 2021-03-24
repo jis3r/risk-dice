@@ -95,45 +95,41 @@
 </script>
 
 <main>
-	<h1>Risk Dice</h1>
-	<p>Simply input the number of attackers and defenders and click fight to see who will win.</p>
-	<label for="attackers">attackers</label>
-	<input type="number" name="attackers" id="attackers" bind:value={attackers}>
-	<label for="attackers">defenders</label>
-	<input type="number" name="defenders" id="attackers" bind:value={defenders}>
-	<br>
+	<div class="container">
+		<div class="row">
+			<div class="twelve columns">
+				<h1>Risk Dice</h1>
+			</div>
 
-	<button on:click={fight}>fight</button>
-	<button on:click={reset}>reset</button>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<p>Simply input the number of attackers and defenders and click fight to see who will win.</p>
+			</div>
+		</div>
 
-	{#if winner === 0}
-	<h3>The attacker won!</h3>
-	{:else if winner === 1}
-	<h3>The defender won!</h3>
-	{/if}
+		<div class="row">
+			<div class="six columns">
+				<label for="attackers">attackers</label>
+				<input type="number" name="attackers" id="attackers" min="0" bind:value={attackers}>
+				<label for="attackers">defenders</label>
+				<input type="number" name="defenders" id="attackers" min="0" bind:value={defenders}>
+			</div>
+		</div>
 
+		<div class="row">
+			<div class="six columns">
+				<button on:click={fight}>fight</button>
+				<button on:click={reset}>reset</button>
+			</div>
+		</div>
 
-
+	
+	
+		{#if winner === 0}
+		<h3>The attacker won!</h3>
+		{:else if winner === 1}
+		<h3>The defender won!</h3>
+		{/if}
+	</div>
 </main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
