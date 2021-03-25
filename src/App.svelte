@@ -122,21 +122,31 @@
 				<p class="centered">Simply input the number of attackers and defenders and click fight to see who will win.</p>
 			</div>
 		</div>
+
+		<div class="row">
+			<div class="twelve columns">
+				<div class="centered">attackers</div>
+			</div>
+		</div>
 		<div class="row">
 			<div class="twelve columns">
 				<div class="centered">
-					<label for="attackers">attackers</label>
 					<button class="button" on:click={reductAtt}>-</button>
-					<input type="number" name="attackers" id="attackers" min="0" bind:value={attackers}>
+					<button class="button" id="attackers" disabled>{attackers}</button>
 					<button class="button" on:click={addAtt}>+</button>
-
 				</div>
 			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<div class="centered">defenders</div>
+			</div>
+		</div>
+		<div class="row">
 			<div class="twelve columns">
 				<div class="centered">
-					<label for="attackers">defenders</label>
 					<button class="button" on:click={reductDef}>-</button>
-					<input type="number" name="defenders" id="attackers" min="0" bind:value={defenders}>
+					<button class="button" id="defenders" disabled>{defenders}</button>
 					<button class="button" on:click={addDef}>+</button>
 				</div>
 			</div>
