@@ -1,4 +1,6 @@
 <script>
+	import Results from './Results.svelte';
+
 	let attackers = 0;
 	let defenders = 0;
 	let attackUnit = 0;
@@ -8,13 +10,15 @@
 	let attackDice = [-1, -1, -1];
 	let defendDice = [-1, -1, -1];
 
+	let boxes = [];
+	let round = 0;
 
 	const fight = () => {
 		attackDice = [-1, -1, -1];
 		defendDice = [-1, -1, -1];
 
 		setFightingSoliders();
-		console.log(`attackUnit ${attackUnit} \t defendUnit ${defendUnit}`);
+		//console.log(`attackUnit ${attackUnit} \t defendUnit ${defendUnit}`);
 
 		throwDice();
 
@@ -23,17 +27,28 @@
 
 		compareResults();
 
-		if( attackers === 0) {
+		if( attackers === 0 ) {
 			winner = 1;
+			setResults("The defender won!");
 		}
-		else if( defenders === 0) {
+		else if( defenders === 0 ) {
 			winner = 0;
+			setResults("The attacker won!");
 		}
 		else {
 			fight();
 		}
 	}
 
+	function setResults(msg) {
+		round++
+		let newBox = {
+			round: round,
+			message: msg
+		}
+		boxes = [newBox, ...boxes]
+		console.log(boxes);
+	}
 	function setFightingSoliders() {
 		if(attackers >= 3) {
 			attackUnit = 3;
@@ -66,7 +81,7 @@
 
 	function dice() {
 		let dice = Math.ceil( Math.random() *6 );
-		console.log(dice);
+		//console.log(dice);
 		return dice;
 	}
 
@@ -168,6 +183,15 @@
 					<h3>The defender won!</h3>
 					{/if}
 				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="twelve columns">
+				{#each boxes as result }
+					<Results	round={result.round} 
+								message={result.message} />
+				{/each}
 			</div>
 		</div>
 
