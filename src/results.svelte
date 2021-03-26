@@ -3,7 +3,8 @@
     import Fightstats from './Fightstats.svelte';
     export let round;
     export let message;
-    export let fights = [1, 2, 3, 4, 5, 6, 7, 8];
+    export let fights = [];
+
 
     let showDetails = false;
 
@@ -29,8 +30,8 @@
         </div>
     </div>
     {#if showDetails}
-        {#each fights as fightnumber}
-            <Fightstats fight={fightnumber}/>
+        {#each fights as fight}
+            <Fightstats fight={fight}/>
         {/each}
     {/if}
 </div>

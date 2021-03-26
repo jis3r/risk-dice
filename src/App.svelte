@@ -13,27 +13,32 @@
 	let boxes = [];
 	let round = 0;
 
+	let fightnumber = 0;
+	let fights = [];
+
 	const fight = () => {
 		attackDice = [-1, -1, -1];
 		defendDice = [-1, -1, -1];
 
 		setFightingSoliders();
 		//console.log(`attackUnit ${attackUnit} \t defendUnit ${defendUnit}`);
-
 		throwDice();
 
 		attackDice.sort(function(a, b){return b - a});
 		defendDice.sort(function(a, b){return b - a});
 
 		compareResults();
+		setFightdata();
 
 		if( attackers === 0 ) {
 			winner = 1;
 			setResults("The defender won!");
+			fightnumber = 0;
 		}
 		else if( defenders === 0 ) {
 			winner = 0;
 			setResults("The attacker won!");
+			fightnumber = 0;
 		}
 		else {
 			fight();
@@ -44,11 +49,24 @@
 		round++
 		let newBox = {
 			round: round,
-			message: msg
+			message: msg,
+			fights: fights
 		}
 		boxes = [newBox, ...boxes]
 		console.log(boxes);
+		fights = [];
 	}
+
+	function setFightdata() {
+		fightnumber++;
+		let newFightdata = {
+			turn: fightnumber,
+			attackerdice: attackDice,
+			defenderdice: defendDice
+		}
+		fights = [...fights, newFightdata]
+	}
+
 	function setFightingSoliders() {
 		if(attackers >= 3) {
 			attackUnit = 3;
@@ -69,13 +87,11 @@
 	}
 
 	function throwDice() {
-		for(let i = 0; i < attackUnit; i++) {
-			attackDice[i] = dice();
-
-		}
-
 		for(let i = 0; i < defendUnit; i++) {
 			defendDice[i] = dice();
+		}
+		for(let i = 0; i < attackUnit; i++) {
+			attackDice[i] = dice();
 		}
 	}
 
@@ -190,7 +206,8 @@
 			<div class="twelve columns">
 				{#each boxes as result }
 					<Results	round={result.round} 
-								message={result.message} />
+								message={result.message}
+								fights={result.fights} />
 				{/each}
 			</div>
 		</div>
