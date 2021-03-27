@@ -157,10 +157,6 @@
 			<div class="twelve columns">
 				<div class="centered">
 					<Input on:valuechange={setAtt} troops={attackers}/>
-
-					<!--button class="button" on:click={reductAtt}>-</button>
-					<button class="button" id="attackers" disabled>{attackers}</button>
-					<button class="button" on:click={addAtt}>+</button-->
 				</div>
 			</div>
 		</div>
@@ -173,10 +169,6 @@
 			<div class="twelve columns">
 				<div class="centered">
 					<Input on:valuechange={setDef} troops={defenders}/>
-
-					<!--button class="button" on:click={reductDef}>-</button>
-					<button class="button" id="defenders" disabled>{defenders}</button>
-					<button class="button" on:click={addDef}>+</button-->
 				</div>
 			</div>
 		</div>
