@@ -16,7 +16,7 @@
 </script>
 
 <div class="results">
-    <div on:click={toggleDetails} style="width: 278px">
+    <div on:click={toggleDetails} style="width: 278px; cursor: pointer;">
         <div class="dropdown u-pull-left">
             {#if showDetails}
             <img src="/images/arrowup.svg" alt="dropdown" in:fade>
@@ -36,10 +36,10 @@
 <style>
     .results{
         border-radius: 4px;
-        border: 1px solid #bbb;
-        margin: 8px auto;
+        margin: 10px auto;
         display: table;
-        cursor: pointer;
+        box-shadow: 2px 2px 4px 2px rgba(208, 208, 208, 0.5);
+        transition: .5s;
     }
 
     .dropdown {
@@ -48,6 +48,4 @@
         margin-left: 8px;
         box-sizing: border-box;
     }
-
-
 </style>

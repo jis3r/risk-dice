@@ -1,5 +1,7 @@
 <script>
 	import Results from './Results.svelte';
+	import Input from './Input.svelte';
+
 
 	let attackers = 0;
 	let defenders = 0;
@@ -124,20 +126,12 @@
 		winner = -1;
 	}
 
-	const reductAtt = () => {
-		if(attackers > 0) attackers--;
+	const setAtt = (e) => {
+		attackers = e.detail;
 	}
 
-	const addAtt = () => {
-		attackers++;
-	}
-
-	const reductDef = () => {
-		if(defenders > 0) defenders--;
-	}
-
-	const addDef = () => {
-		defenders++;
+	const setDef = (e) => {
+		defenders = e.detail;
 	}
 </script>
 
@@ -162,29 +156,33 @@
 		<div class="row">
 			<div class="twelve columns">
 				<div class="centered">
-					<button class="button" on:click={reductAtt}>-</button>
+					<Input on:valuechange={setAtt} troops={attackers}/>
+
+					<!--button class="button" on:click={reductAtt}>-</button>
 					<button class="button" id="attackers" disabled>{attackers}</button>
-					<button class="button" on:click={addAtt}>+</button>
+					<button class="button" on:click={addAtt}>+</button-->
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="twelve columns">
-				<div class="centered">defenders</div>
+				<div class="centered" style="margin-top: 5%;">defenders</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="twelve columns">
 				<div class="centered">
-					<button class="button" on:click={reductDef}>-</button>
+					<Input on:valuechange={setDef} troops={defenders}/>
+
+					<!--button class="button" on:click={reductDef}>-</button>
 					<button class="button" id="defenders" disabled>{defenders}</button>
-					<button class="button" on:click={addDef}>+</button>
+					<button class="button" on:click={addDef}>+</button-->
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="twelve columns">
-				<div class="centered">
+				<div class="centered" style="margin-top: 10%;">
 					<button class="button" on:click={fight}>fight</button>
 					<button class="button" on:click={reset}>reset</button>
 				</div>
@@ -201,12 +199,11 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="row">
 			<div class="twelve columns">
 				{#each boxes as result }
 					<Results	round={result.round} 
-								message={result.message + "         "}
+								message={result.message}
 								fights={result.fights} />
 				{/each}
 			</div>
