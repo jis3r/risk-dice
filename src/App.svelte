@@ -1,5 +1,5 @@
 <script>
-	import Results from './Results.svelte';
+	import Results from './results.svelte';
 	import Input from './Input.svelte';
 
 
