@@ -206,14 +206,11 @@
 			<div class="twelve columns">
 				{#each boxes as result }
 					<Results	round={result.round} 
-								message={result.message}
+								message={result.message + "         "}
 								fights={result.fights} />
 				{/each}
 			</div>
-		</div>
-
-	
-	
+		</div>	
 	</div>
 </main>
 
@@ -223,6 +220,4 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
-
-
 </style>

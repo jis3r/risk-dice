@@ -16,7 +16,7 @@
 </script>
 
 <div class="results">
-    <div on:click={toggleDetails}>
+    <div on:click={toggleDetails} style="width: 278px">
         <div class="dropdown u-pull-left">
             {#if showDetails}
             <img src="/images/arrowup.svg" alt="dropdown" in:fade>
@@ -24,10 +24,7 @@
             <img src="/images/arrowdown.svg" alt="dropdown" in:fade>
             {/if}
         </div>
-        <div>
-            Round {round} : {message} 
-            <br>
-        </div>
+        Round {round} : {message}    
     </div>
     {#if showDetails}
         {#each fights as fight}
@@ -40,8 +37,9 @@
     .results{
         border-radius: 4px;
         border: 1px solid #bbb;
-        margin: 8px;
-        box-sizing: border-box;
+        margin: 8px auto;
+        display: table;
+        cursor: pointer;
     }
 
     .dropdown {
