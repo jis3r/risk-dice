@@ -24,31 +24,31 @@
             {#each fight.attackerdice as dice}
                 {#if dice === -1}
                     <td>
-                      <img src="/images/nodicered.svg" alt="nodice">
+                      <img src="/images/nodicered.svg" alt="X">
                     </td>
                 {:else if dice === 1}
                   <td>
-                    <img src="/images/diceonered.svg" alt="one">
+                    <img src="/images/diceonered.svg" alt="1">
                   </td>
                 {:else if dice === 2}
                   <td>
-                    <img src="/images/dicetwored.svg" alt="two">
+                    <img src="/images/dicetwored.svg" alt="2">
                   </td>
                 {:else if dice === 3}
                   <td>
-                    <img src="/images/dicethreered.svg" alt="three">
+                    <img src="/images/dicethreered.svg" alt="3">
                   </td>
                 {:else if dice === 4}
                   <td>
-                    <img src="/images/dicefourred.svg" alt="four">
+                    <img src="/images/dicefourred.svg" alt="4">
                   </td>
                 {:else if dice === 5}
                   <td>
-                    <img src="/images/dicefivered.svg" alt="five">
+                    <img src="/images/dicefivered.svg" alt="5">
                   </td>
                 {:else if dice === 6}
                   <td>
-                    <img src="/images/dicesixred.svg" alt="six">
+                    <img src="/images/dicesixred.svg" alt="6">
                   </td>
                 {/if}
             {/each}
@@ -58,31 +58,31 @@
             {#each fight.defenderdice as dice}
                 {#if dice === -1}
                     <td>
-                      <img src="/images/nodiceblue.svg" alt="nodice">
+                      <img src="/images/nodiceblue.svg" alt="X">
                     </td>
                     {:else if dice === 1}
                     <td>
-                      <img src="/images/diceoneblue.svg" alt="one">
+                      <img src="/images/diceoneblue.svg" alt="1">
                     </td>
                   {:else if dice === 2}
                     <td>
-                      <img src="/images/dicetwoblue.svg" alt="two">
+                      <img src="/images/dicetwoblue.svg" alt="2">
                     </td>
                   {:else if dice === 3}
                     <td>
-                      <img src="/images/dicethreeblue.svg" alt="three">
+                      <img src="/images/dicethreeblue.svg" alt="3">
                     </td>
                   {:else if dice === 4}
                     <td>
-                      <img src="/images/dicefourblue.svg" alt="four">
+                      <img src="/images/dicefourblue.svg" alt="4">
                     </td>
                   {:else if dice === 5}
                     <td>
-                      <img src="/images/dicefiveblue.svg" alt="five">
+                      <img src="/images/dicefiveblue.svg" alt="5">
                     </td>
                   {:else if dice === 6}
                     <td>
-                      <img src="/images/dicesixblue.svg" alt="six">
+                      <img src="/images/dicesixblue.svg" alt="6">
                     </td>
                 {/if}
             {/each}
