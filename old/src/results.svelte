@@ -1,6 +1,6 @@
 <script>
     import { fade } from 'svelte/transition';
-    import Fightstats from './Fightstats.svelte';
+    import Fightstats from './fightstats.svelte';
     export let round;
     export let message;
     export let fights = [];
