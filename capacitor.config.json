@@ -1,0 +1,6 @@
+{
+  "appId": "dev.isermann.riskdice",
+  "appName": "Risk Roll",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
