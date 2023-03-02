@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    namespace 'dev.isermann.riskdice'
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "dev.isermann.riskdice"
